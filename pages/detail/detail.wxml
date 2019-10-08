@@ -3,7 +3,7 @@
   <view class="container">
     <view class="head">
       <!-- <image class="head-img"></image> -->
-      <swiper style="height:500rpx;width:100%;background:#eee" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+      <swiper style="height:400rpx;width:100%;background:#eee" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
         <!--广告banner-->
         <block wx:for="{{ goods.images }}" wx:key="item">
           <swiper-item>
@@ -26,7 +26,7 @@
         <view class="size">
           <!-- <view class='type-item' style="background-color:#E5E5E5;border:none;color:#313131;margin-top:16rpx;"> -->
           <!-- <view class='type-item' style="border:none;font-size:32rpx;color:#313131;margin-top:16rpx;"> -->
-          <text class='type-item-name'>{{item.name}} :</text>
+          <text class='type-item-name'>{{item.name}}:</text>
           <!-- </view> -->
           <view class='type-list'>
             <block wx:for="{{item.size}}" wx:key='item' wx:for-item="body">
@@ -40,7 +40,7 @@
 
       <view class="number">
         <view class="size-text">数量：</view>
-        <view>
+        <view style="margin-left:30rpx">
           <van-stepper value="{{ 1 }}" bind:change="onChange" />
         </view>
 

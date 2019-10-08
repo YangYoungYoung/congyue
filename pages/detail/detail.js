@@ -43,6 +43,9 @@ Page({
         wx.hideLoading();
 
         var goods = res.data.data;
+        that.setData({
+          goods: goods
+        })
         console.log('goods:', goods)
         // var imagList = res.data.data.goods.listPicUrl.split(",");
         let specificationValues = goods.specification;
@@ -84,7 +87,6 @@ Page({
         }
         this.setData({
           guiGe: guiGe,
-          goods: goods,
           // imagList: imagList
         })
 
@@ -110,6 +112,7 @@ Page({
   getGuiGe: function() {
     let that = this;
     let guiGe = that.data.guiGe;
+    console.log('guiGe is:', guiGe);
     let goodsSpecifitionValue = "";
     for (var i = 0; i < guiGe.length; i++) {
       var list = guiGe[i].size;
@@ -155,10 +158,10 @@ Page({
     let goodsId = that.data.goodsId;
     let goodsSpecifitionValue = that.getGuiGe();
     // console.log('goodsSpecifitionValue is:', goodsSpecifitionValue);
-    // if (goodsSpecifitionValue == '' || goodsSpecifitionValue == undefined) {
-    //   common.showTip('请选择规格', 'loading');
-    //   return;
-    // }
+    if (goodsSpecifitionValue == '' || goodsSpecifitionValue == undefined) {
+      common.showTip('请选择规格', 'loading');
+      return;
+    }
 
 
     let number = that.data.number;
@@ -224,7 +227,76 @@ Page({
     that.setData({
       guiGe: guiGe
     })
+    that.chooseEveryGuiGe();
   },
+  //判断是否选中了每个规格
+  chooseEveryGuiGe: function() {
+    let that = this;
+    var guiGe = that.data.guiGe;
+    var selectNum = 0;
+    var typeInfo = '';
+    console.log('guiGe:::::::::', guiGe);
+    for (var i = 0; i < guiGe.length; i++) {
+      var type = guiGe[i].size;
 
+      console.log('type is :', type);
+      for (var j = 0; j < type.length; j++) {
+        // console.log('单个类型：', guiGe[i].type[j]);
+        if (type[j].select) {
+          console.log('type is====', type[j]);
+          typeInfo += type[j].content + ';';
+          selectNum += 1;
+        }
+      }
+
+    }
+
+
+    //去掉最后一个逗号(如果不需要去掉，就不用写)
+    if (typeInfo.length > 0) {
+      typeInfo = typeInfo.substr(0, typeInfo.length - 1);
+      console.log('typeInfo is:', typeInfo);
+      that.setData({
+        typeInfo: typeInfo
+      })
+    }
+    //判断每个规格至少有一个选中即请求新的价格接口
+    if (selectNum == guiGe.length) {
+      that.getNewPrice();
+    }
+  },
+  //根据不同规格获取不同价格
+  getNewPrice: function() {
+    let that = this;
+    let url = "goods/details/choose";
+    let goodsId = that.data.goodsId;
+    let typeInfo = that.data.typeInfo;
+    console.log('typeInfo :', typeInfo);
+
+    var params = {
+      typeInfo: typeInfo,
+      goodsId: goodsId
+    };
+    let method = "GET";
+    wx.showLoading({
+        title: '加载中...',
+      }),
+      network.POST(url, params, method).then((res) => {
+        wx.hideLoading();
+        // console.log("返回值是：" + res.data);
+        if (res.data.code == 200) {
+
+          // that.hideModal();
+        }
+      }).catch((errMsg) => {
+        wx.hideLoading();
+        // console.log(errMsg); //错误提示信息
+        wx.showToast({
+          title: '网络错误',
+          icon: 'loading',
+          duration: 1500,
+        })
+      });
+  }
 
 })

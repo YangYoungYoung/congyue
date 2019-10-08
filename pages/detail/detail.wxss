@@ -86,8 +86,9 @@ scroll-view {
 .size {
   /* margin-left: 36rpx; */
   display: flex;
+  margin-top: 20rpx;
   flex-direction: row;
-  align-items: center;
+  /* align-items: center; */
 }
 
 /* 类型 */
@@ -95,9 +96,9 @@ scroll-view {
 .type-list {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   margin-top: 16rpx;
-  margin-left: 70rpx;
+  margin-left: 60rpx;
 }
 
 .type-text {
@@ -115,9 +116,10 @@ scroll-view {
   display: flex;
   text-align: center;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   border-radius: 19rpx;
   border: solid 1rpx #707070;
+  margin-bottom: 10rpx;
 }
 
 .type-item-name {
