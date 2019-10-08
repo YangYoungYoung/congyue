@@ -1,0 +1,63 @@
+<!--pages/detail/detail.wxml-->
+<scroll-view scroll-y>
+  <view class="container">
+    <view class="head">
+      <!-- <image class="head-img"></image> -->
+      <swiper style="height:500rpx;width:100%;background:#eee" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+        <!--广告banner-->
+        <block wx:for="{{ goods.images }}" wx:key="item">
+          <swiper-item>
+            <image class="banner-image" src="{{ item }}" />
+          </swiper-item>
+        </block>
+      </swiper>
+
+
+      <view class="info">
+        <view class="good-price">￥{{goods.price}}</view>
+        <view class="good-name">{{goods.title}}</view>
+      </view>
+    </view>
+    <view class="parameter">
+      <view class="size-view">
+
+      </view>
+      <block wx:for="{{guiGe}}" wx:key='item' wx:for-item="item">
+        <view class="size">
+          <!-- <view class='type-item' style="background-color:#E5E5E5;border:none;color:#313131;margin-top:16rpx;"> -->
+          <!-- <view class='type-item' style="border:none;font-size:32rpx;color:#313131;margin-top:16rpx;"> -->
+          <text class='type-item-name'>{{item.name}} :</text>
+          <!-- </view> -->
+          <view class='type-list'>
+            <block wx:for="{{item.size}}" wx:key='item' wx:for-item="body">
+              <view class='type-item' style="{{body.select?'border:1px solid #E83D2C; color:#E83D2C':'color:#313131'}}" bindtap='guiGeSelect' data-index='{{index}}' data-id='{{item.id}}'>
+                <text class='type-item-text'>{{body.content}}</text>
+              </view>
+            </block>
+          </view>
+        </view>
+      </block>
+
+      <view class="number">
+        <view class="size-text">数量：</view>
+        <view>
+          <van-stepper value="{{ 1 }}" bind:change="onChange" />
+        </view>
+
+      </view>
+    </view>
+
+    <view class="detail-title">产品详情</view>
+    <view class="detail-info">
+      <block wx:for='{{goods.details_figure}}' wx:key='item'>
+        <image class="list-img" src="{{item}}"></image>
+      </block>
+    </view>
+
+    <view class='btn'>
+      <button class="button-add" open-type="contact">咨询客服</button>
+      <button class="button-buy" bindtap="addToCart">加入购物车</button>
+    </view>
+
+  </view>
+</scroll-view>

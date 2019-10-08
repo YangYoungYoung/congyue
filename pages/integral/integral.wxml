@@ -1,0 +1,60 @@
+<!--pages/integral/integral.wxml-->
+<view class="container">
+  <!-- <view class="integral-view">
+    <image class="integral-img" src="../images/icon_head.png"></image>
+    <view class="integral-text">我的积分:5</view>
+  </view>
+  <view class="line-view"></view>
+  <view class="rule-view">
+    <text class="rule-title">积分制度</text>
+    <block wx:for='{{ruleArr}}' wx:key="item">
+      <view class="rule-list">
+      ·  {{item}}
+      </view>
+    </block>
+  </view> -->
+  <view class="tabs">
+    <van-tabs animated>
+      <van-tab title="现金券列表">
+        <block wx:if="{{hasList}}">
+          <view class="integral-list">
+            <block wx:for="{{listArr}}" wx:key='item'>
+              <view class="listItem">
+                <view class="item-left">
+
+                  <text class="item-price">￥{{item.money}}</text>
+                  <text class="item-text">购物代金券</text>
+                </view>
+                <image class="item-logo" src="../images/logo.png"></image>
+              </view>
+            </block>
+          </view>
+        </block>
+        <block wx:else>
+          <view class='info_null'>
+            抱歉，当前没有数据
+          </view>
+        </block>
+      </van-tab>
+      <van-tab title="现金券记录">
+        <block wx:if="{{hasRecord}}">
+          <view class="integral-record">
+            <block wx:for="{{recordArr}}" wx:key="item">
+              <view class="record-item">
+                <text class="record-text">{{item.text}}</text>
+                <text class="record-time">{{item.time}}</text>
+              </view>
+              <view class="view-line"></view>
+            </block>
+          </view>
+        </block>
+        <block wx:else>
+          <view class='info_null'>
+            抱歉，当前没有数据
+          </view>
+        </block>
+      </van-tab>
+    </van-tabs>
+  </view>
+
+</view>

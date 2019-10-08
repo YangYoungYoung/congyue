@@ -1,0 +1,11 @@
+<!--pages/record/record.wxml-->
+<view class="container">
+  <view class="good-list">
+    <view class="good-item">
+      <image class="good-img" src=""></image>
+      <text class="good-name"></text>
+      <text class="good-price"></text>
+    </view>
+    <view class="buy-again" bindtap="buyAgain">再次购买</view>
+  </view>
+</view>

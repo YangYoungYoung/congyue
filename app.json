@@ -1,9 +1,21 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/integral/integral",
+    "pages/shopApply/shopApply",
+    "pages/mine/mine",
+    "pages/payOrder/payOrder",
     "pages/good/good",
-    "pages/logs/logs",
-    "pages/mine/mine"
+    "pages/cart/cart",
+    "pages/detail/detail",
+    "pages/register/register",
+    "pages/login/login",
+    "pages/article/article",
+    "pages/forgetPwd/forgetPwd",
+    "pages/address/address",
+    "pages/record/record",
+    "pages/newAddress/newAddress",
+    "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -29,6 +41,12 @@
         "text": "产品"
       },
       {
+        "pagePath": "pages/cart/cart",
+        "iconPath": "pages/images/icon_cart.jpg",
+        "selectedIconPath": "pages/images/icon_cart1.png",
+        "text": "购物车"
+      },
+      {
         "pagePath": "pages/mine/mine",
         "iconPath": "pages/images/icon_mine.png",
         "selectedIconPath": "pages/images/icon_mine1.png",
@@ -38,7 +56,7 @@
   },
   "plugins": {
     "tencentvideo": {
-      "version": "1.2.4",
+      "version": "1.3.6",
       "provider": "wxa75efa648b60994b"
     }
   },

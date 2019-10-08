@@ -4,8 +4,8 @@ const app = getApp()
 // var API_URL = 'https://api.ugo365.xyz/api/';
 // var API_URL = 'https://ugo365.eicp.vip/api/';
 
-var API_URL = 'https://api-test.ugo365.xyz/api/';
-// var API_URL = 'http://132.232.142.23:8088/api/';
+// var API_URL = 'https://www.congyue88.com/';
+var API_URL = 'https://192.168.5.10:443/';
 var defaulContentType = 'application/x-www-form-urlencoded; charset=UTF-8';
 
 function POST(url, params, method, contenTTypeCust) {
@@ -18,10 +18,11 @@ function POST(url, params, method, contenTTypeCust) {
   if (typeof contenTTypeCust != 'undefined') {
     contentType == contenTTypeCust;
   }
+  console.log('dev - contenTTypeCust', contentType);
   let promise = new Promise(function(resolve, reject) {
 
     wx.request({
-      url: API_URL+url,
+      url: API_URL + url,
       data: params,
       method: method,
       header: {

@@ -1,0 +1,68 @@
+/* pages/article/article.wxss */
+
+scroll-view {
+  white-space: nowrap;
+  height: 100%;
+  width: 100%; /*从效果来看, 如果不设置宽度, scroll-view默认为屏幕宽度, 因此可以设置一下其宽度*/
+}
+
+/*隐藏滚动条*/
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  /* background-color: #eee; */
+}
+
+.title {
+  margin-top: 20rpx;
+  font-size: 34rpx;
+  color: #343434;
+  margin-bottom: 20rpx;
+}
+
+.content {
+  width: 678rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item {
+  width: 678rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.item-img {
+  width: 678rpx;
+  height: 300rpx;
+}
+
+.item-text {
+  text-indent: 42rpx;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+  font-size: 26rpx;
+  text-align: left;
+  color: #343434;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 10; /*  行数*/
+  -webkit-box-orient: vertical;
+}

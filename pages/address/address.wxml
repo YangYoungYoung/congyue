@@ -1,0 +1,35 @@
+<!--pages/address/address.wxml-->
+<view class='container'>
+  <block wx:for="{{addressList}}" wx:key="index">
+    <block wx:if="{{chooseAddress}}">
+      <view class='list-item' bindtap='chooseAddress' data-index='{{index}}'>
+        <view class='name-phone'>
+          <text class='name'>{{item.name}}</text>
+          <text class='phone'>{{item.phone}}</text>
+        </view>
+        <view class='address-edit'>
+          <text class='address'>{{item.address}}</text>
+          <image class='edit' src='../images/edit_icon.png' catchtap='editAddress' data-index='{{index}}'></image>
+        </view>
+        <view class='line'></view>
+      </view>
+    </block>
+    <block else>
+      <view class='list-item'>
+        <view class='name-phone'>
+          <text class='name'>{{item.name}}</text>
+          <text class='phone'>{{item.phone}}</text>
+        </view>
+        <view class='address-edit'>
+          <text class='address'>{{item.address}}</text>
+          <image class='edit' src='../images/edit_icon.png' catchtap='editAddress' data-index='{{index}}'></image>
+        </view>
+        <view class='line'></view>
+      </view>
+    </block>
+  </block>
+  <view class='footer' bindtap='newAddress'>
+    <text class='footer-text'>+  新建地址</text>
+  </view>
+
+</view>

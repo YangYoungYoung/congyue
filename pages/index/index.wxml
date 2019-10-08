@@ -6,7 +6,7 @@
         <!--广告banner-->
         <block wx:for="{{ swiperList }}" wx:key="item">
           <swiper-item>
-            <image class="banner-image" src="{{ item.picUrl }}" />
+            <image class="banner-image" src="{{ item }}" />
           </swiper-item>
         </block>
       </swiper>
@@ -20,26 +20,24 @@
       <!-- </view> -->
 
     </view>
-    <view class="video-bottom">刷脸支付</view>
+    <view class="video-bottom">刷脸支付是未来趋势</view>
 
     <view class="line-view"></view>
 
     <view class="text-title">文章</view>
 
     <view class="article-view">
-      <block wx:for="{{ swiperList }}" wx:key="item">
-        <view class="article-item">
-          <image class="article-img" src=""></image>
+      <block wx:for="{{ articleArr }}" wx:key="item">
+        <view class="article-item" data-id="{{item.id}}" bindtap="toArticle">
+          <image class="article-img" src="{{item.priture}}"></image>
           <view class="article-right">
-            <text class="article-title"></text>
-            <text class="article-content"></text>
+            <text class="article-title">{{item.title}}</text>
+            <text class="article-content">{{item.body}}</text>
           </view>
         </view>
         <view class="article-line"></view>
       </block>
     </view>
   </scroll-view>
-
-
 
 </view>

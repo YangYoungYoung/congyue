@@ -1,0 +1,62 @@
+/* pages/record/record.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  background-color: #eee;
+}
+
+.container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.good-list{
+  width: 100%;
+  height: 302rpx;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.good-item{
+  width: 678rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+.good-img{
+  margin-left: 36rpx;
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.good-name{
+  width: 348rpx;
+  font-size: 22rpx;
+  color: #343434;
+  margin-left: 20rpx;
+
+}
+
+.good-price{
+  font-size: 24rpx;
+  color: #343434;
+  margin-left: 27rpx;
+}
+
+.buy-again{
+  width: 150rpx;
+	height: 50rpx;
+	border-radius: 25rpx;
+	border: solid 1rpx #e52638;
+  text-align: center;
+  line-height: 50rpx;
+  position: fixed;
+  right: 0;
+  
+}
+
+

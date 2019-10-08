@@ -1,0 +1,14 @@
+<!--pages/article/article.wxml-->
+<scroll-view scroll-y>
+  <view class="container">
+    <view class="title">{{contentArr[0].title}}</view>
+    <view class="content">
+      <block wx:for='{{contentArr}}' wx:key='item'>
+        <view class="item">
+          <image class="item-img" src="{{item.image}}"></image>
+          <text class="item-text">{{item.text}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+</scroll-view>

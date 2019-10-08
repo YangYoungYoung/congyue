@@ -1,2 +1,24 @@
 <!--pages/good/good.wxml-->
-<text>pages/good/good.wxml</text>
+<view class="container">
+  <view class="good-list">
+    <block wx:for='{{goodList}}' wx:key='item'>
+      <!-- <block wx:for="{{ goodsS }}" wx:key="item"> -->
+      <view class='item_view' bindtap='toDetail' data-id='{{item.id}}'>
+        <view class='item_head'>
+          <image class='head_image' src='{{item.image}}' mode="aspectFill" lazy-load='true'></image>
+        </view>
+        <view class='item_foot'>
+
+          <text class='item_title'>{{item.title}}</text>
+          <view class='item_integral'>
+            <!-- <view class='jifen_view'>价格</view> -->
+            
+            <view class='price_info'>￥{{item.price}}起</view>
+          </view>
+        </view>
+      </view>
+      <!-- </block> -->
+    </block>
+  </view>
+
+</view>

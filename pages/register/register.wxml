@@ -1,0 +1,16 @@
+<!--pages/register/register.wxml-->
+<view class="container">
+  <view class="title">注册</view>
+  <view class="content">
+    <input class="phoneinput" maxlength="11" placeholder='请输入手机号' bindinput="phoneInput"></input>
+    <view class="line-view"></view>
+    <input class="phoneinput" type="password" placeholder='请输入密码' bindinput="pwdInput"></input>
+  </view>
+
+  <button class="loginbtn" bindtap="register">注册</button>
+
+  <!-- <view class="bottom-view">
+    <text class="bottom-left" bindtap="forgetPwd">忘记密码</text>
+    <text class="bottom-left" bindtap="toRegister">新用户注册</text>
+  </view> -->
+</view>

@@ -1,1 +1,111 @@
 /* pages/good/good.wxss */
+
+page {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.good-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  background-color: #eee;
+}
+
+.item_view {
+  width: 360rpx;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin-bottom: 15rpx;
+}
+
+.item_head {
+  width: 100%;
+  height: 367rpx;
+  display: block;
+}
+
+.item_head image {
+  width: 100%;
+  height: 100%;
+}
+
+.item_foot {
+  width: 100%;
+  padding: 15rpx 10rpx 10rpx 15rpx;
+  text-align: center;
+  color: #616161;
+}
+
+.item_title {
+  padding-right: 30rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-all;
+  /* white-space: normal !important; */
+  -webkit-line-clamp: 2; /*  行数*/
+  -webkit-box-orient: vertical;
+  font-size: 26rpx;
+  text-align: left;
+
+}
+
+.item_integral {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  line-height: 100%;
+  margin-top: 15rpx;
+  align-items: center;
+}
+
+.price_info {
+  height: 36rpx;
+  /* margin-left: 15rpx; */
+  color: #e52638;
+  font-size: 28rpx;
+}
+
+.item_sold {
+  margin-top: 10rpx;
+  display: flex;
+  float: right;
+  font-size: 24rpx;
+  padding-right: 40rpx;
+  color: #919191;
+}
+
+.jifen_view {
+  width: 68rpx;
+  height: 40rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 4rpx;
+  border: 2rpx solid rgba(232, 61, 44, 1);
+  text-align: center;
+  align-items: center;
+  font-size: 24rpx;
+  color: #e83d2c;
+}
+
+.jifen_logo {
+  width: 24rpx;
+  height: 26rpx;
+  margin-left: 7rpx;
+}

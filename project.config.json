@@ -18,12 +18,13 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		}
+		},
+		"nodeModules": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.8.3",
 	"appid": "wx08f8431b00722535",
-	"projectname": "congyuemini",
+	"projectname": "congyue",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

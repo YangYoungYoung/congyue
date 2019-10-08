@@ -1,2 +1,49 @@
 <!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
+<view class="container">
+  <view class="top">
+    <view class='userinfo-left'>
+      <block wx:if="{{user}}">
+        <image class="userinfo-avatar" src="{{user.avatarUrl}}"></image>
+        <text class="userinfo-nickname">{{user.nickName}}</text>
+      </block>
+      <block wx:else>
+        <image class="userinfo-avatar" src="../images/head_image.png"></image>
+        <text class="userinfo-nickname" bindtap='showPermissionDialog'>登录/注册</text>
+      </block>
+    </view>
+  </view>
+  <view class="vant-cell">
+    <van-cell is-link title="商户申请" link-type="navigateTo" url="/pages/shopApply/shopApply" />
+    <van-cell is-link title="购买记录" link-type="navigateTo" url="/pages/record/record" />
+    <van-cell is-link title="我的地址" link-type="navigateTo" url="/pages/address/address" />
+    <van-cell is-link title="我的现金券" link-type="navigateTo" url="/pages/integral/integral" />
+    <view class="cell-view" bindtap="contactUs">
+      联系我们
+    </view>
+    <button class="contact-btn" open-type="contact" session-from="weapp">在线客服</button>
+    <view class="line-view"></view>
+    <button class="contact-btn" open-type="share">分享(+6积分)</button>
+  </view>
+
+
+
+  <!--弹窗-->
+  <view class="modal-mask" bindtap="hidePermissionModal" catchtouchmove="preventTouchMove" wx:if="{{showPermission}}"></view>
+  <view class="modal-dialog" wx:if="{{showPermission}}">
+    <view class="modal-title">您还未登录</view>
+    <view class="modal-content">
+      <text class='content-text'>请先登录再进行操作</text>
+    </view>
+    <view class="modal-footer">
+      <button class="btn-cancel" bindtap="hidePermissionModal" data-status="cancel">取消</button>
+      <button class="btn-confirm" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" data-status="confirm">确定</button>
+    </view>
+  </view>
+
+  <view class="weui-footer" style='background-color:#EEE;padding-top:30rpx'>
+    <!-- <view class="weui-footer__links">
+       <navigator url="" class="weui-footer__link">底部链接</navigator> 
+    </view> -->
+    <view class="weui-footer__text">Copyright © 2019 河北聪悦科技有限公司</view>
+  </view>
+</view>

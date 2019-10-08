@@ -1,0 +1,187 @@
+/* pages/detail/detail.wxss */
+
+scroll-view {
+  white-space: nowrap;
+  height: 100%;
+  width: 100%; /*从效果来看, 如果不设置宽度, scroll-view默认为屏幕宽度, 因此可以设置一下其宽度*/
+}
+
+/*隐藏滚动条*/
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #eee;
+}
+
+.head {
+  width: 100%;
+  /* height: 602rpx; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner-image {
+  width: 100%;
+  height: 400rpx;
+}
+
+.swiper-view {
+  width: 100%;
+  height: 400rpx;
+  display: block;
+}
+
+
+.info {
+  width: 100%;
+  /* height: 106rpx; */
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.good-price {
+  font-size: 32rpx;
+  color: #e56832;
+  margin-top: 20rpx;
+  margin-left: 36rpx;
+}
+
+.good-name {
+  font-size: 30rpx;
+  margin-left: 36rpx;
+  color: #969696;
+  /* margin-top: 20rpx; */
+  margin-bottom: 20rpx;
+}
+
+.parameter {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+
+.number {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20rpx;
+  margin-left: 36rpx;
+  margin-top: 20rpx;
+}
+
+.size {
+  /* margin-left: 36rpx; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* 类型 */
+
+.type-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 16rpx;
+  margin-left: 70rpx;
+}
+
+.type-text {
+  font-size: 24rpx;
+  color: #313131;
+}
+
+.type-item {
+  /* margin-left: 36rpx; *//* width: 144rpx; *//* height: 36rpx; *//* border-radius: 18rpx;
+  border: 1rpx solid rgba(232, 61, 44, 1);
+  display: flex;
+  text-align: left;
+  flex-direction: column; *//* align-items: center; *//* margin-right: 24rpx; *//* width: 240rpx; */
+  height: 40rpx;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 19rpx;
+  border: solid 1rpx #707070;
+}
+
+.type-item-name {
+  margin-left: 36rpx;
+  font-size: 30rpx;
+  text-align: left;
+}
+
+.type-item-text {
+  /* padding-top: 8rpx;
+  padding-bottom: 8rpx; */
+  font-size: 24rpx;
+  padding-left: 36rpx;
+  padding-right: 36rpx;
+}
+
+.detail-title {
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 100rpx;
+  text-align: center;
+  color: #707070;
+  font-size: 34rpx;
+}
+
+.detail-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100rpx;
+}
+
+.list-img {
+  width: 100%;
+  height: 500rpx;
+  margin-bottom: 20rpx;
+}
+
+.btn {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+}
+
+.button-add {
+  width: 50%;
+  border: 0px;
+  background: #42b883;
+  color: #fbfbfb;
+  border-radius: 0px;
+  font-size: 28rpx;
+}
+
+.button-buy {
+  width: 50%;
+  background: #ff7e67;
+  color: #fbfbfb;
+  border-radius: 0px;
+  font-size: 28rpx;
+}

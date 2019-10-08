@@ -1,0 +1,42 @@
+<!--pages/newAddress/newAddress.wxml-->
+<view class='container'>
+  <view class='name-view' style='margin-top:0rpx;'>
+    <text class='name-text'>收货人</text>
+    <input class="inputText" type='text' placeholder="请输入姓名" value='{{name}}' bindinput="nameInput" />
+  </view>
+  <view class='line'></view>
+
+  <view class='name-view'>
+    <text class='name-text'>手机号码</text>
+    <input class="inputText" type='number' maxlength="11" placeholder="请输入手机号码" value='{{phone}}' bindinput="phoneInput" />
+  </view>
+  <view class='line'></view>
+  <view class='name-view' bindtap='showDialogBtn'>
+    <text class='name-text'>所在地区</text>
+    <!-- <input class="inputText" type='number' placeholder="请输入手机号码" bindinput="passwordInput" /> -->
+    <text wx:if="{{cityText!=''}}" class='cityText' style='text-align: center;margin-left:24rpx;'>{{cityText}}</text>
+  </view>
+  <view class='line'></view>
+  <view class='name-view'>
+    <text class='name-text'>详细地址</text>
+    <input class="inputText" type='text' placeholder="街道、楼牌号" value='{{street}}' bindinput="streetInput" />
+  </view>
+  <view class='line'></view>
+  <!--弹窗-->
+  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class='modal-area' wx:if="{{showModal}}">
+    <van-area area-list="{{ areaList }}" bind:confirm='confirmFunction' bind:cancel='hideModal' />
+  </view>
+  <block wx:if="{{isNew}}">
+    <view class='footer' bindtap='saveFunction'>
+      保存
+    </view>
+  </block>
+  <block wx:else>
+    <view class='footer' bindtap='editSaveFunction'>
+      修改
+    </view>
+  </block>
+
+
+</view>
