@@ -147,7 +147,7 @@ Page({
 
           } else if (res.confirm) {
             // 用户点击了确定属性的按钮，跳转到个人中心登录
-            wx.navigateTo({
+            wx.switchTab({
               url: '../mine/mine',
             })
           }
@@ -168,7 +168,7 @@ Page({
     let goodsName = that.data.goods.title;
     let index = that.data.index;
     let price = that.data.goods.price;
-
+    let typeInfo = that.data.typeInfo;
     // let url = "goods/goods?goodsId=" + goodsId;
     let url = "carts/add_to_cart";
     let cart = {
@@ -176,6 +176,7 @@ Page({
       goodsId: goodsId,
       number: number,
       userId: userId,
+      typeInfo: typeInfo
       // price: price,
       // goodsName: goodsName,
       // goodsSpecifitionValue: goodsSpecifitionValue
@@ -285,7 +286,10 @@ Page({
         wx.hideLoading();
         // console.log("返回值是：" + res.data);
         if (res.data.code == 200) {
-
+          let goods = res.data.data;
+          that.setData({
+            goods: goods
+          })
           // that.hideModal();
         }
       }).catch((errMsg) => {

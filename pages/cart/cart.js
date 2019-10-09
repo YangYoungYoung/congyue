@@ -136,9 +136,11 @@ Page({
 
     network.POST(url, params, method).then((res) => {
 
-      // console.log("数量加返回值是：" + res.data);
+      
       if (res.data.code == 200) {
-        this.setGoodsList(this.getSaveHide(), this.totalPrice(), this.allSelect(), this.noSelect(), list);
+        console.log("单个删除返回值是：" + res.data);
+        that.getCartGoods();
+        // this.setGoodsList(this.getSaveHide(), this.totalPrice(), this.allSelect(), this.noSelect(), list);
       }
     }).catch((errMsg) => {
       wx.hideLoading();
@@ -202,27 +204,34 @@ Page({
   },
   //总价
   totalPrice: function() {
-    var list = this.data.goodsList.list;
+    let that = this;
+    var list = that.data.goodsList.list;
+    console.log('list is:', list);
     var total = 0;
-    for (var i = 0; i < list.length; i++) {
-      var curItem = list[i];
-      if (curItem.active) {
-        total += parseFloat(curItem.price) * curItem.number;
+    if (list != undefined) {
+      for (var i = 0; i < list.length; i++) {
+        var curItem = list[i];
+        if (curItem.active) {
+          total += parseFloat(curItem.price) * curItem.number;
+        }
       }
     }
+
     return total;
   },
   //全选
   allSelect: function() {
     var list = this.data.goodsList.list;
     var allSelect = false;
-    for (var i = 0; i < list.length; i++) {
-      var curItem = list[i];
-      if (curItem.active) {
-        allSelect = true;
-      } else {
-        allSelect = false;
-        break;
+    if (list != undefined) {
+      for (var i = 0; i < list.length; i++) {
+        var curItem = list[i];
+        if (curItem.active) {
+          allSelect = true;
+        } else {
+          allSelect = false;
+          break;
+        }
       }
     }
     return allSelect;
@@ -232,10 +241,12 @@ Page({
   noSelect: function() {
     var list = this.data.goodsList.list;
     var noSelect = 0;
-    for (var i = 0; i < list.length; i++) {
-      var curItem = list[i];
-      if (!curItem.active) {
-        noSelect++;
+    if (list != undefined) {
+      for (var i = 0; i < list.length; i++) {
+        var curItem = list[i];
+        if (!curItem.active) {
+          noSelect++;
+        }
       }
     }
     if (noSelect == list.length) {
@@ -271,36 +282,39 @@ Page({
 
     let method = "PUT";
     let scList = [];
-    if (currentAllSelect) {
-      for (var i = 0; i < list.length; i++) {
-        var curItem = list[i];
-        let obj = {
-          id: curItem.id,
-          isChecked: 1,
-        };
-        scList.push(obj);
+    if (list != undefined) {
 
-        curItem.active = false;
-      }
+      if (currentAllSelect) {
+        for (var i = 0; i < list.length; i++) {
+          var curItem = list[i];
+          let obj = {
+            id: curItem.id,
+            isChecked: 1,
+          };
+          scList.push(obj);
 
-      var params = {
-        scList: scList
-      }
+          curItem.active = false;
+        }
 
-    } else {
-      for (var i = 0; i < list.length; i++) {
-        var curItem = list[i];
-        curItem.active = true;
-        let obj = {
-          id: curItem.id,
-          isChecked: 0,
-        };
-        scList.push(obj);
+        var params = {
+          scList: scList
+        }
+
+      } else {
+        for (var i = 0; i < list.length; i++) {
+          var curItem = list[i];
+          curItem.active = true;
+          let obj = {
+            id: curItem.id,
+            isChecked: 0,
+          };
+          scList.push(obj);
+        }
+        this.setGoodsList(this.getSaveHide(), this.totalPrice(), !currentAllSelect, this.noSelect(), list);
+        // var params = {
+        //   scList: scList
+        // }
       }
-      this.setGoodsList(this.getSaveHide(), this.totalPrice(), !currentAllSelect, this.noSelect(), list);
-      // var params = {
-      //   scList: scList
-      // }
     }
     // wx.showLoading({
     //     title: '加载中...',
@@ -339,7 +353,7 @@ Page({
         //参数
         var params = {
           // scList: [{
-          userId: 12,
+          userId: userId,
           cid: list[parseInt(index)].id,
           number: list[parseInt(index)].number
           // }]
@@ -380,7 +394,7 @@ Page({
 
         var params = {
           // scList: [{
-          userId: 12,
+          userId: userId,
           cid: list[parseInt(index)].id,
           number: list[parseInt(index)].number
           // }]
@@ -603,9 +617,11 @@ Page({
       network.POST(url, params, method).then((res) => {
         wx.hideLoading();
         // console.log("返回值是：" + res.data);
+        if (res.data.code == 200) {
 
-        that.data.goodsList.list = res.data.data;
-        this.setGoodsList(this.getSaveHide(), this.totalPrice(), this.allSelect(), this.noSelect(), this.data.goodsList.list);
+          that.data.goodsList.list = res.data.data;
+          this.setGoodsList(this.getSaveHide(), this.totalPrice(), this.allSelect(), this.noSelect(), this.data.goodsList.list);
+        }
 
 
       }).catch((errMsg) => {
