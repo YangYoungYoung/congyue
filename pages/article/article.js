@@ -37,7 +37,7 @@ Page({
         if (res.data.code == 200) {
 
           let contentArr = res.data.data;
-          console.log(contentArr[0].title);
+          // console.log(contentArr[0].title);
           that.setData({
             // title:res.data.title,
             contentArr: contentArr

@@ -51,7 +51,7 @@ Page({
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         let imageFrontPath = res.tempFilePaths[0];
         let images = that.data.images;
-        console.log(imageFrontPath);
+        // console.log(imageFrontPath);
         images.push(imageFrontPath);
         that.setData({
           images: images,
@@ -77,7 +77,7 @@ Page({
           certificate: certificate,
           images: images
         })
-        console.log(certificate);
+        // console.log(certificate);
       }
     })
   },
@@ -88,10 +88,10 @@ Page({
     let name = that.data.name;
     let email = that.data.email;
     let images = that.data.images
-    console.log('phone', phone);
-    console.log('name', name);
+    // console.log('phone', phone);
+    // console.log('name', name);
     let userId = wx.getStorageSync('userId');
-    console.log('userId', userId);
+    // console.log('userId', userId);
     if (phone.length == 0) {
       common.showTip('请输入正确手机号', 'loading');
       return

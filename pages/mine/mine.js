@@ -16,7 +16,7 @@ Page({
   onLoad: function(options) {
     let that = this;
     let user = wx.getStorageSync('user');
-    console.log('user:', user);
+    // console.log('user:', user);
     if (user != undefined) {
       that.setData({
         user: user
@@ -62,7 +62,7 @@ Page({
     // console.log(info);
     if (info.detail.userInfo) {
 
-      console.log("userInfo:", info.detail.userInfo);
+      // console.log("userInfo:", info.detail.userInfo);
       wx.setStorageSync('user', info.detail.userInfo);
       that.setData({
         user: info.detail.userInfo
@@ -109,7 +109,7 @@ Page({
         wx.hideLoading();
 
         let openId = res.data.openid;
-        console.log("获取openId：", openId);
+        // console.log("获取openId：", openId);
         wx.setStorageSync('openId', openId);
 
         wx.reLaunch({
@@ -146,14 +146,14 @@ Page({
       success(e) {
 
 
-        console.log("用户提交了分享");
+        // console.log("用户提交了分享");
       },
       fail(e) {
 
-        console.log("用户取消了分享");
+        // console.log("用户取消了分享");
       },
       complete() {
-        console.log("用户取消了分享");
+        // console.log("用户取消了分享");
       }
     }
   },

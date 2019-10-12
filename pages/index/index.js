@@ -17,7 +17,7 @@ Page({
   onLoad: function (options) {
     if (options.userId!=undefined){
       let primaryUserId = options.userId;
-      console.log('primaryUserId:', primaryUserId);
+      // console.log('primaryUserId:', primaryUserId);
       wx.setStorageSync('primaryUserId', primaryUserId);
     }
     let that = this;
@@ -60,7 +60,7 @@ Page({
   //获取文章
   getArticle: function() {
     let that = this;
-    let url = '/index/article';
+    let url = 'index/article';
     var params = {
 
     }
@@ -72,7 +72,7 @@ Page({
         wx.hideLoading();
 
         if (res.data.code == 200) {
-          console.log(res.data);
+          // console.log(res.data);
 
           that.setData({
             articleArr: res.data.data
@@ -92,7 +92,7 @@ Page({
   },
   toArticle: function(e) {
     let id = e.currentTarget.dataset.id;
-    console.log('id:', id);
+    // console.log('id:', id);
     wx.navigateTo({
       url: '../article/article?id=' + id,
     })

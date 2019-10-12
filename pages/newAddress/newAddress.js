@@ -3826,7 +3826,7 @@ Page({
         isNew: true
       })
     }
-    console.log('isNew is:', that.data.isNew);
+    // console.log('isNew is:', that.data.isNew);
 
   },
 
@@ -3901,7 +3901,7 @@ Page({
     }
     let userId = wx.getStorageSync('userId');
     let address = cityText + street;
-    console.log('address：', address);
+    // console.log('address：', address);
     // let url = "address/add"
     let url = 'addresses/addnew';
     var params = {
@@ -3969,7 +3969,7 @@ Page({
     let phone = that.data.phone;
     let cityText = that.data.cityText;
     let street = that.data.street;
-    console.log('这里是修改。。。。。。');
+    // console.log('这里是修改。。。。。。');
 
     if (name == '' || name == undefined) {
       common.showTip('收货人姓名不能为空', 'loading');

@@ -39,7 +39,7 @@ Page({
         // console.log("提交订单的结果是：" + res.data.code); //正确返回结果
         //返回的是订单Id
         if (res.data.code == 200) {
-          console.log('预订单 is ', res.data.data);
+          // console.log('预订单 is ', res.data.data);
           let cartItems = res.data.data.jsonArray;
           let orderPrice = res.data.data.totalPrice;
           that.setData({

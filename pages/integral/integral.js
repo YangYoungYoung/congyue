@@ -35,7 +35,7 @@ Page({
         wx.hideLoading();
 
         if (res.data.code == 200) {
-          console.log('record is:', res.data.data);
+          // console.log('record is:', res.data.data);
           if (res.data.data.length > 0) {
             that.setData({
               hasRecord: true
@@ -77,7 +77,7 @@ Page({
         wx.hideLoading();
 
         if (res.data.code == 200) {
-          console.log('record is:', res.data.data);
+          // console.log('record is:', res.data.data);
           if (res.data.data.length > 0) {
             that.setData({
               hasList: true

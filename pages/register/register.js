@@ -17,7 +17,7 @@ Page({
    */
   onLoad: function(options) {
     let primaryUserId = wx.getStorageSync('primaryUserId');
-    console.log('primaryUserId 是：', primaryUserId);
+    // console.log('primaryUserId 是：', primaryUserId);
     if (primaryUserId != undefined || primaryUserId != '') {
       let primaryUserId = primaryUserId;
       this.setData({
@@ -48,7 +48,7 @@ Page({
     let user = wx.getStorageSync('user');
 
     let name = user.nickName;
-    console.log('user.name:', name);
+    // console.log('user.name:', name);
     if (phone.length == 0) {
       common.showTip('手机号不能为空', 'loading');
     } else if (phone.length != 11) {
@@ -75,12 +75,12 @@ Page({
         if (res.data.code == 200) {
           common.showTip('注册成功', 'success');
           let userId = res.data.data.userId;
-          console.log('userId:', userId);
+          // console.log('userId:', userId);
           wx.setStorageSync('userId', userId);
           let primaryUserId = wx.getStorageSync('primaryUserId');
-          console.log('primaryUserId is:', primaryUserId);
+          // console.log('primaryUserId is:', primaryUserId);
           if (primaryUserId != undefined || primaryUserId != null) {
-            console.log('给上级积分增加成功');
+            // console.log('给上级积分增加成功');
             that.integralAdd();
           }
           wx.switchTab({
@@ -108,7 +108,7 @@ Page({
     let user = wx.getStorageSync('user');
     
     let subName = user.nickName;
-    console.log('subName is', subName);
+    // console.log('subName is', subName);
     wx.showLoading({
       title: '加载中...',
     })

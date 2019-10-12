@@ -46,7 +46,7 @@ Page({
         that.setData({
           goods: goods
         })
-        console.log('goods:', goods)
+        // console.log('goods:', goods)
         // var imagList = res.data.data.goods.listPicUrl.split(",");
         let specificationValues = goods.specification;
         var guiGe = [];
@@ -61,7 +61,7 @@ Page({
             strArr = str.split(",");
             allList.push(strArr);
           }
-          console.log("allList is :", allList);
+          // console.log("allList is :", allList);
 
           for (var i = 0; i < allList.length; i++) {
             var list = allList[i];
@@ -82,7 +82,7 @@ Page({
             obj.id = i;
             // console.log('obj:', obj);
             guiGe.push(obj);
-            console.log('guiGe is: ', guiGe);
+            // console.log('guiGe is: ', guiGe);
           }
         }
         this.setData({
@@ -102,7 +102,7 @@ Page({
   },
   //获取数量
   onChange: function(event) {
-    console.log('number:', event.detail);
+    // console.log('number:', event.detail);
     this.setData({
       number: event.detail
     })
@@ -112,7 +112,7 @@ Page({
   getGuiGe: function() {
     let that = this;
     let guiGe = that.data.guiGe;
-    console.log('guiGe is:', guiGe);
+    // console.log('guiGe is:', guiGe);
     let goodsSpecifitionValue = "";
     for (var i = 0; i < guiGe.length; i++) {
       var list = guiGe[i].size;
@@ -236,7 +236,7 @@ Page({
     var guiGe = that.data.guiGe;
     var selectNum = 0;
     var typeInfo = '';
-    console.log('guiGe:::::::::', guiGe);
+    // console.log('guiGe:::::::::', guiGe);
     for (var i = 0; i < guiGe.length; i++) {
       var type = guiGe[i].size;
 
@@ -244,7 +244,7 @@ Page({
       for (var j = 0; j < type.length; j++) {
         // console.log('单个类型：', guiGe[i].type[j]);
         if (type[j].select) {
-          console.log('type is====', type[j]);
+          // console.log('type is====', type[j]);
           typeInfo += type[j].content + ';';
           selectNum += 1;
         }
@@ -256,7 +256,7 @@ Page({
     //去掉最后一个逗号(如果不需要去掉，就不用写)
     if (typeInfo.length > 0) {
       typeInfo = typeInfo.substr(0, typeInfo.length - 1);
-      console.log('typeInfo is:', typeInfo);
+      // console.log('typeInfo is:', typeInfo);
       that.setData({
         typeInfo: typeInfo
       })
@@ -272,7 +272,7 @@ Page({
     let url = "goods/details/choose";
     let goodsId = that.data.goodsId;
     let typeInfo = that.data.typeInfo;
-    console.log('typeInfo :', typeInfo);
+    // console.log('typeInfo :', typeInfo);
 
     var params = {
       typeInfo: typeInfo,

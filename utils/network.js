@@ -4,8 +4,8 @@ const app = getApp()
 // var API_URL = 'https://api.ugo365.xyz/api/';
 // var API_URL = 'https://192.168.5.11:443/';
 
-// var API_URL = 'https://www.congyue88.com/';
-var API_URL = 'http://62.234.16.210:8080/congyue/';
+var API_URL = 'https://www.congyue88.com/congyue/';
+// var API_URL = 'http://62.234.16.210:8080/congyue/';
 var defaulContentType = 'application/x-www-form-urlencoded; charset=UTF-8';
 
 function POST(url, params, method, contenTTypeCust) {

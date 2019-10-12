@@ -61,10 +61,10 @@ Page({
         wx.hideLoading();
 
         if (res.data.code == 200) {
-          console.log('登录成功，跳转');
+          // console.log('登录成功，跳转');
           //  common.showTip('登录成功','success');
           let userId = res.data.data.userId;
-          console.log('userId:',userId);
+          // console.log('userId:',userId);
           wx.setStorageSync('userId', userId);
           wx.switchTab({
             url: '../index/index',
